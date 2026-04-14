@@ -32,12 +32,13 @@
 
 1. Загрузите датасет в Colab:
 
-`Fake Brand Dataset.zip`
+**Fake Brand Dataset.zip**
 
 
 2. Укажите пути:
 
 `zip_path = "/content/Fake Brand Dataset.zip"`
+```
 `extract_path = "/content/fashion_data"`
 
 
