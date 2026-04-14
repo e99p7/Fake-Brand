@@ -25,20 +25,6 @@ Fashion Brand Classification (Lightweight, Colab Version)
 Это позволяет запускать проект в среде с ограниченными ресурсами.
 
 
-Структура проекта
-
-project/
-│
-├── Fake Brand Dataset.zip
-├── fashion_data/
-│   ├── Gucci/
-│   ├── Nike/
-│   ├── Adidas/
-│   └── ...
-│
-├── main.ipynb
-└── README.md
-
 Установка (Colab)
 
 pip install pyspark pandas pyarrow pillow torchvision
