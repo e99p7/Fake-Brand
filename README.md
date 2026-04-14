@@ -1,8 +1,6 @@
 # Fake-Brand
 Модель для распознавания оригинальных и фейковых товаров популярных модных брендов.
 
-Fashion Brand Classification (Lightweight, Colab Version)
-
 Данная версия оптимизирована для запуска в **Google Colab (free)** с ограниченными ресурсами.
 
 
@@ -27,20 +25,20 @@ Fashion Brand Classification (Lightweight, Colab Version)
 
 Установка (Colab)
 
-pip install pyspark pandas pyarrow pillow torchvision
+`pip install pyspark pandas pyarrow pillow torchvision`
 
 
 Запуск
 
 1. Загрузите датасет в Colab:
 
-Fake Brand Dataset.zip
+`Fake Brand Dataset.zip`
 
 
 2. Укажите пути:
 
-zip_path = "/content/Fake Brand Dataset.zip"
-extract_path = "/content/fashion_data"
+`zip_path = "/content/Fake Brand Dataset.zip"`
+`extract_path = "/content/fashion_data"`
 
 
 3. Запустите все ячейки ноутбука
