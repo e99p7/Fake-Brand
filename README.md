@@ -39,7 +39,7 @@
 
 `zip_path = "/content/Fake Brand Dataset.zip"`
 ```
-`extract_path = "/content/fashion_data"`
+extract_path = "/content/fashion_data"
 ```
 
 3. Запустите все ячейки ноутбука
