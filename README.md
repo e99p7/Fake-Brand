@@ -31,15 +31,8 @@
 **Запуск**
 
 1. Скачайте датасет **Fake Brand Dataset.zip** https://www.kaggle.com/datasets/prashanthgolla/fake-brand-data?utm_source=chatgpt.com
-2. Загрузите его в Colab:
 
-
-2. Укажите пути:
-
-`zip_path = "/content/Fake Brand Dataset.zip"`
-
-`extract_path = "/content/fashion_data"`
-
+2. Загрузите его в сессионное хранилище Colab
 
 3. Запустите все ячейки ноутбука
 
