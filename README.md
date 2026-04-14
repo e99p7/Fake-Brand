@@ -30,9 +30,8 @@
 
 **Запуск**
 
-1. Загрузите датасет в Colab:
-
-**Fake Brand Dataset.zip**
+1. Скачайте датасет **Fake Brand Dataset.zip** https://www.kaggle.com/datasets/prashanthgolla/fake-brand-data?utm_source=chatgpt.com
+2. Загрузите его в Colab:
 
 
 2. Укажите пути:
