@@ -69,7 +69,6 @@ Core:
 Images → Augmentation → EfficientNet → Fine-tuning → Threshold tuning → Prediction
 ```
 
----
 
 **Pipeline (Baseline)**
 
@@ -98,7 +97,6 @@ Images → Spark DataFrame → MobileNetV2 → Logistic Regression → Predictio
 pip install torch torchvision pillow scikit-learn
 ```
 
----
 
 **How to Run**
 
@@ -207,7 +205,6 @@ Core:
 Images → Augmentation → EfficientNet → Fine-tuning → Threshold tuning → Prediction
 ```
 
----
 
 **Pipeline (Baseline Spark)**
 
@@ -215,7 +212,6 @@ Images → Augmentation → EfficientNet → Fine-tuning → Threshold tuning �
 Images → Spark DataFrame → MobileNetV2 (features) → Spark Vector → Logistic Regression → Prediction
 ```
 
----
 
 **Данные**
 
@@ -239,7 +235,6 @@ Production версия:
 pip install torch torchvision pillow scikit-learn
 ```
 
----
 
 **Запуск**
 
