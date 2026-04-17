@@ -1,96 +1,308 @@
-# Fake-Brand
-Модель для распознавания оригинальных и фейковых товаров популярных модных брендов.
 
-Данная версия оптимизирована для запуска в **Google Colab (free)** с ограниченными ресурсами.
+**Fake-Brand Detection (AI)**
 
+A machine learning model for detecting counterfeit fashion products (fake vs genuine) from images.
+
+The project is designed to work under limited resources (Google Colab free) while applying modern computer vision techniques.
+
+---
+
+**Project Versions**
+
+This repository contains two versions:
+
+**Baseline (Lightweight, Spark)**
+
+* Apache Spark + Logistic Regression
+* Feature extraction using MobileNetV2
+* Designed for CPU and scalable pipelines
+
+
+**Production Version (Recommended)**
+
+* PyTorch + EfficientNet-B0
+* Transfer learning + fine-tuning
+* Binary classification (fake vs genuine)
+* Test-Time Augmentation (TTA)
+* Threshold tuning
+* Early stopping
+
+---
+
+**Results (Production)**
+
+* Accuracy: **0.79**
+* F1-score:
+
+  * genuine: 0.80
+  * fake: 0.78
+* Balanced performance with minimal overfitting
+
+---
+
+**Tech Stack**
+
+Core:
+
+* Python
+* PyTorch
+* torchvision
+* scikit-learn
+
+**ML / CV:**
+
+* EfficientNet-B0 (ImageNet pretrained)
+* Transfer Learning
+* Fine-tuning
+* Data Augmentation
+* Class weighting
+* Threshold tuning
+* Test-Time Augmentation (TTA)
+
+**Baseline:**
+
+* Apache Spark
+* Pandas UDF
+* Logistic Regression
+
+---
+
+**Pipeline (Production)**
+
+```
+Images → Augmentation → EfficientNet → Fine-tuning → Threshold tuning → Prediction
+```
+
+---
+
+**Pipeline (Baseline)**
+
+```
+Images → Spark DataFrame → MobileNetV2 → Logistic Regression → Prediction
+```
+
+---
+
+**Dataset**
+
+* Fake Brand Dataset (Kaggle)
+* Limited to ~500 images (Colab constraint)
+* Stratified sampling applied
+
+---
+
+**Model Architecture**
+
+* Backbone: EfficientNet-B0
+* Classifier: Fully connected layer + dropout
+* Task: binary classification (fake vs genuine)
+
+
+
+---
+
+**Installation**
+
+```
+pip install torch torchvision pillow scikit-learn
+```
+
+---
+
+**How to Run**
+
+1. Download dataset:
+   https://www.kaggle.com/datasets/prashanthgolla/fake-brand-data
+
+2. Upload to Colab
+
+3. Run notebook
+
+---
+
+**Limitations**
+
+* Small dataset (~500 images)
+* High variability of images
+* No explicit ROI/logo detection
+
+---
+
+**Future Improvements**
+
+* Larger dataset
+* Hard example mining
+* Logo/ROI detection
+* Model ensemble
+* ONNX optimization
+* FastAPI deployment
+
+---
+
+**Summary**
+
+This project demonstrates a production-style ML pipeline:
+
+* data processing
+* model training
+* optimization
+* deployment readiness
+
+---
+
+
+
+**Fake-Brand Detection (AI)**
+
+Модель машинного обучения для распознавания оригинальных и фейковых товаров популярных модных брендов.
+
+Проект реализован с учётом ограниченных ресурсов (Google Colab free), но использует современные подходы компьютерного зрения и transfer learning.
+
+---
+
+**Версия проекта**
+
+В репозитории представлены две версии:
+
+**Базовая (Lightweight, Spark)**
+
+* Apache Spark + Logistic Regression
+* Feature extraction через MobileNetV2
+* Подходит для CPU и больших пайплайнов обработки данных
+
+**Production-версия (рекомендуется)**
+
+* PyTorch + EfficientNet-B0
+* Fine-tuning нейросети
+* Binary classification (fake vs genuine)
+* Test-Time Augmentation (TTA)
+* Threshold tuning
+* Early stopping
+
+---
+
+**Результаты (Production версия)**
+
+* Accuracy: **0.79**
+* F1-score:
+
+  * genuine: 0.80
+  * fake: 0.78
+* Сбалансированные метрики без сильного переобучения
+
+---
 
 **Используемые технологии**
 
-* Apache Spark — обработка данных
-* PyTorch — извлечение признаков (feature extraction)
-* MobileNetV2 — облегчённая CNN модель
-* Pandas UDF — интеграция Spark + Python
+Core:
 
-**Особенности облегчённой версии**
+* Python
+* PyTorch
+* torchvision
+* scikit-learn
 
-В отличие от полной версии:
+**ML / CV:**
 
-* Используется **MobileNetV2** вместо тяжёлой InceptionV3
-* Уменьшен размер изображений (128×128)
-* Ограничен размер датасета
-* Используется CPU вместо GPU (стабильность)
+* EfficientNet-B0 (ImageNet pretrained)
+* Transfer Learning
+* Fine-tuning
+* Data Augmentation
+* Class weighting
+* Threshold tuning
+* Test-Time Augmentation (TTA)
 
-Это позволяет запускать проект в среде с ограниченными ресурсами.
+**Базовая версия:**
 
+* Apache Spark
+* Pandas UDF
+* Logistic Regression
+
+---
+
+**Pipeline (Production)**
+
+```
+Images → Augmentation → EfficientNet → Fine-tuning → Threshold tuning → Prediction
+```
+
+---
+
+**Pipeline (Baseline Spark)**
+
+```
+Images → Spark DataFrame → MobileNetV2 (features) → Spark Vector → Logistic Regression → Prediction
+```
+
+---
+
+**Данные**
+
+* Датасет: Fake Brand Dataset (Kaggle)
+* Ограничение: ~500 изображений (Colab free)
+* Используется стратифицированная выборка
+
+---
+
+**Архитектура модели**
+
+Production версия:
+
+* Backbone: EfficientNet-B0
+* Классификатор: Fully Connected + Dropout
+* Задача: бинарная классификация (fake / genuine)
+
+
+---
 
 **Установка (Colab)**
 
-`pip install pyspark pandas pyarrow pillow torchvision`
+```
+pip install torch torchvision pillow scikit-learn
+```
 
+---
 
 **Запуск**
 
-1. Скачайте датасет **Fake Brand Dataset.zip** https://www.kaggle.com/datasets/prashanthgolla/fake-brand-data?utm_source=chatgpt.com
+1. Скачать датасет:
+   https://www.kaggle.com/datasets/prashanthgolla/fake-brand-data
 
-2. Загрузите его в сессионное хранилище Colab
+2. Загрузить в Colab
 
-3. Запустите все ячейки ноутбука
+3. Запустить ноутбук
 
-**Pipeline**
-
-1. Распаковка ZIP-датасета
-2. Создание Spark DataFrame
-3. Ограничение объёма данных
-4. Разделение на train/test
-5. Извлечение признаков (MobileNetV2)
-6. Кодирование меток
-7. Обучение Logistic Regression
-8. Предсказание
-9. Оценка качества
-
-Images → Spark DataFrame → MobileNetV2 (features) → Spark Vector → Logistic Regression → Prediction
-
-
-**Модель**
-
-Используется:
-
-* MobileNetV2 (предобученная на ImageNet)
-* Удалён последний слой классификации
-* Извлекаются признаки (1280-dimensional embeddings)
-
-Далее:
-
-* обучается Logistic Regression (Spark ML)
-
-
-**Метрика**
-
-Используется:
-
-* Accuracy (MulticlassClassificationEvaluator)
-
+---
 
 **Ограничения**
 
-* Используется только часть датасета (~500 изображений)
-* Снижено качество модели по сравнению с полной версией
-* CPU вместо GPU увеличивает время выполнения
+* Малый размер датасета (~500 изображений)
+* Высокая вариативность изображений
+* Отсутствие детекции ROI (логотипов)
 
-
-**Причина упрощения**
-
-Полная версия проекта (InceptionV3 + GPU + Spark) требует значительных вычислительных ресурсов и может не запускаться в Google Colab (free).
-
-Поэтому была использована облегчённая архитектура MobileNetV2, обеспечивающая аналогичный процесс transfer learning при меньших затратах ресурсов.
-
+---
 
 **Возможные улучшения**
 
-* Использование GPU
-* Возврат к InceptionV3
-* Увеличение размера датасета
-* Fine-tuning модели
-* Добавление MLflow
-* Развёртывание API (FastAPI)
+* Увеличение датасета
+* Hard Example Mining
+* Детекция логотипов (ROI)
+* Ensemble моделей
+* ONNX оптимизация
+* Развёртывание через FastAPI
+
+---
+
+**Итог**
+
+Проект демонстрирует полный ML pipeline:
+
+* обработка данных
+* обучение модели
+* оптимизация
+* подготовка к продакшену
+
+Даже при ограниченных ресурсах достигается стабильное качество.
+
+---
+
 
